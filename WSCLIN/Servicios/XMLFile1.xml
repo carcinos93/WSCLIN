@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<detalleTransacciones>
+<idRegistroBancario>idRegistroBancario</idRegistroBancario>
+<direccionAgencia>Calle 2, No 3, Colonia Escalon</direccionAgencia>
+<idDepartamento>06</idDepartamento>
+<idMunicipio>0614</idMunicipio>
+<codigoColaborador>jgiron</codigoColaborador>
+<fechaTransaccion>2017-01-01</fechaTransaccion>
+<distintoalCliente>1</distintoalCliente>
+<PTprimerApellido>ECHEGOYÉN</PTprimerApellido>
+<PTsegundoApellido>ORELLANA</PTsegundoApellido>
+ <PTpersonaDomicilio>Calle San Antonio Abad, Portico San Antonio, Casa 18C</PTpersonaDomicilio> 
+<PTprimerNombre>EDGARDO</PTprimerNombre>
+<PTsegundoNombre>ENRIQUE</PTsegundoNombre>
+<PTfechaNacimiento>1988-04-17</PTfechaNacimiento>
+<PTcodigoNacionalidad>222</PTcodigoNacionalidad>
+<PTcodigoEstadoCivil>1</PTcodigoEstadoCivil>
+<PTtipoDocumento>1</PTtipoDocumento>
+ <PTlugarNacimiento>SANTA TECLA</PTlugarNacimiento>
+  <PTTipoPersonaA>1</PTTipoPersonaA>
+  <valorMedioElectronicoPB>12000</valorMedioElectronicoPB>
+  <claseCuentaPB>87744-4884</claseCuentaPB>
+  <montoTransaccionPB>12000.24</montoTransaccionPB>
+  <valorOtrosMediosElectronicoPO>19400.23</valorOtrosMediosElectronicoPO>
+<PTnumeroDocumento>03913203-8</PTnumeroDocumento>
+<PTpersonaDomicilio>Calle San Antonio Abad, Portico San Antonio, Casa 18C</PTpersonaDomicilio>
+<PTcodigoMunicipio>
+  codigoMunicipio
+</PTcodigoMunicipio>
+<PTcodigoDepartamento>
+  codigoDepartamento
+</PTcodigoDepartamento>
+<PTprofesionPersona>Ing.</PTprofesionPersona>
+<PBtipoPersonaB>1</PBtipoPersonaB>
+<PBprimerApellido>ECHEGOYÉN</PBprimerApellido>
+<PBsegundoApellido>ORELLANA</PBsegundoApellido>
+<PBprimerNombre>EDGARDO</PBprimerNombre>
+<PBsegundoNombre>ENRIQUE</PBsegundoNombre>
+<PBfechaNacimiento>1988-04-17</PBfechaNacimiento>
+<PBcodigoNacionalidad>222</PBcodigoNacionalidad>
+<PBcodigoEstadoCivil>1</PBcodigoEstadoCivil>
+  <PBpersonaDomicilio>
+    Calle San Antonio Abad, Portico San Antonio, Casa 18C</PBpersonaDomicilio> 
+<PBtipoDocumento>
+  1
+</PBtipoDocumento>
+<PBnumeroDocumento>03913203-8</PBnumeroDocumento>
+<PBpesonaDomicilio>Calle San Antonio Abad, Portico San Antonio, Casa 18C</PBpesonaDomicilio>
+<PBcodigoMunicipio>
+  codigoMunicipio
+</PBcodigoMunicipio>
+  <PBlugarNacimiento>SANTA TECLA</PBlugarNacimiento>
+<PBcodigoDepartamento>
+  codigoDepartamento
+</PBcodigoDepartamento>
+<PBprofesionPersona>Ing.</PBprofesionPersona>
+<PJrazonSocial>EDGARDO ENRIQUE  ECHEGOYÉN ORELLANA </PJrazonSocial>
+<PJactividadEconomica>Calle San Antonio Abad, Portico San Antonio, Casa 18C</PJactividadEconomica>
+<PJtipoIdentificacionT>1</PJtipoIdentificacionT>
+<PJnumeroIdentificacionT>0614-170488-111-2</PJnumeroIdentificacionT>
+<tipoTransaccion>2</tipoTransaccion>
+<numeroProducto>00000020</numeroProducto>
+<montoTransaccion>100.000000</montoTransaccion>
+<valorEfectivo>100.000000</valorEfectivo>
+<conceptoTransaccion></conceptoTransaccion>
+<objetivoEfectivo>VENTAS DIARIAS</objetivoEfectivo>
+  <INGRESOtotalTransacciones>24</INGRESOtotalTransacciones>
+  <INGRESOvalorTotal>34230.99</INGRESOvalorTotal>
+  <INGRESOvalorEfectivo>17333</INGRESOvalorEfectivo>
+  <EGRESOtotalTransacciones>24</EGRESOtotalTransacciones>
+  <EGRESOvalorTotal>34230.99</EGRESOvalorTotal>
+  <EGRESOvalorEfectivo>17333</EGRESOvalorEfectivo>
+  <tipoPersona>1</tipoPersona>
+  <numeroCuentaPO>76445-5484-4</numeroCuentaPO>
+  <claseCuentaPO>1</claseCuentaPO>
+  <conceptoTransaccionPO>ENVIOS DE PRUEBAS</conceptoTransaccionPO>
+  <valorOtrosMediosElectronicoPO>12452.25</valorOtrosMediosElectronicoPO>
+  <numeroProductoPB>9444</numeroProductoPB>
+  <claseCuentaPB>2</claseCuentaPB>
+  <montoTransaccionPB>145873.22</montoTransaccionPB>
+  <valorMedioElectronicoPB>25444.22</valorMedioElectronicoPB>
+  <bancoCuentaDestinatariaPB>844499944</bancoCuentaDestinatariaPB>
+</detalleTransacciones>

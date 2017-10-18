@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://service.business.siraf.uif.gob.sv/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ReporteTransaccionesWebService" targetNamespace="http://service.business.siraf.uif.gob.sv/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy xmlns:wsat200410="http://schemas.xmlsoap.org/ws/2004/10/wsat" wsu:Id="ReporteTransaccionesWebServicePortBinding_reporteOtrosMediosElectronicos_Policy">
+    <wsat200410:ATAlwaysCapability />
+    <wsat200410:ATAssertion xmlns:ns1="http://schemas.xmlsoap.org/ws/2002/12/policy" wsp:Optional="true" ns1:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsat200410="http://schemas.xmlsoap.org/ws/2004/10/wsat" wsu:Id="ReporteTransaccionesWebServicePortBinding_reporteDiarioEfectivo_Policy">
+    <wsat200410:ATAlwaysCapability />
+    <wsat200410:ATAssertion xmlns:ns2="http://schemas.xmlsoap.org/ws/2002/12/policy" wsp:Optional="true" ns2:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsat200410="http://schemas.xmlsoap.org/ws/2004/10/wsat" wsu:Id="ReporteTransaccionesWebServicePortBinding_reporteMensualOtrosMedios_Policy">
+    <wsat200410:ATAlwaysCapability />
+    <wsat200410:ATAssertion xmlns:ns3="http://schemas.xmlsoap.org/ws/2002/12/policy" wsp:Optional="true" ns3:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsat200410="http://schemas.xmlsoap.org/ws/2004/10/wsat" wsu:Id="ReporteTransaccionesWebServicePortBinding_reporteDiarioOtrosMedios_Policy">
+    <wsat200410:ATAlwaysCapability />
+    <wsat200410:ATAssertion xmlns:ns4="http://schemas.xmlsoap.org/ws/2002/12/policy" wsp:Optional="true" ns4:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsat200410="http://schemas.xmlsoap.org/ws/2004/10/wsat" wsu:Id="ReporteTransaccionesWebServicePortBinding_reporteMensualEfectivo_Policy">
+    <wsat200410:ATAlwaysCapability />
+    <wsat200410:ATAssertion xmlns:ns5="http://schemas.xmlsoap.org/ws/2002/12/policy" wsp:Optional="true" ns5:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsat200410="http://schemas.xmlsoap.org/ws/2004/10/wsat" wsu:Id="ReporteTransaccionesWebServicePortBinding_inicioSesion_Policy">
+    <wsat200410:ATAlwaysCapability />
+    <wsat200410:ATAssertion xmlns:ns6="http://schemas.xmlsoap.org/ws/2002/12/policy" wsp:Optional="true" ns6:Optional="true" />
+  </wsp:Policy>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://192.167.1.13:8080/ReporteTransaccionesWebService/ReporteTransaccionesWebService?xsd=1" namespace="http://service.business.siraf.uif.gob.sv/" />
+    </xsd:schema>
+  </types>
+  <message name="reporteDiarioEfectivo">
+    <part name="parameters" element="tns:reporteDiarioEfectivo" />
+  </message>
+  <message name="reporteDiarioEfectivoResponse">
+    <part name="parameters" element="tns:reporteDiarioEfectivoResponse" />
+  </message>
+  <message name="SirafBusinessException">
+    <part name="fault" element="tns:SirafBusinessException" />
+  </message>
+  <message name="reporteMensualOtrosMedios">
+    <part name="parameters" element="tns:reporteMensualOtrosMedios" />
+  </message>
+  <message name="reporteMensualOtrosMediosResponse">
+    <part name="parameters" element="tns:reporteMensualOtrosMediosResponse" />
+  </message>
+  <message name="reporteOtrosMediosElectronicos">
+    <part name="parameters" element="tns:reporteOtrosMediosElectronicos" />
+  </message>
+  <message name="reporteOtrosMediosElectronicosResponse">
+    <part name="parameters" element="tns:reporteOtrosMediosElectronicosResponse" />
+  </message>
+  <message name="inicioSesion">
+    <part name="parameters" element="tns:inicioSesion" />
+  </message>
+  <message name="inicioSesionResponse">
+    <part name="parameters" element="tns:inicioSesionResponse" />
+  </message>
+  <message name="reporteDiarioOtrosMedios">
+    <part name="parameters" element="tns:reporteDiarioOtrosMedios" />
+  </message>
+  <message name="reporteDiarioOtrosMediosResponse">
+    <part name="parameters" element="tns:reporteDiarioOtrosMediosResponse" />
+  </message>
+  <message name="reporteMensualEfectivo">
+    <part name="parameters" element="tns:reporteMensualEfectivo" />
+  </message>
+  <message name="reporteMensualEfectivoResponse">
+    <part name="parameters" element="tns:reporteMensualEfectivoResponse" />
+  </message>
+  <portType name="ReporteTransaccionesWebService">
+    <operation name="reporteDiarioEfectivo">
+      <input wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteDiarioEfectivoRequest" message="tns:reporteDiarioEfectivo" />
+      <output wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteDiarioEfectivoResponse" message="tns:reporteDiarioEfectivoResponse" />
+      <fault wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteDiarioEfectivo/Fault/SirafBusinessException" name="SirafBusinessException" message="tns:SirafBusinessException" />
+    </operation>
+    <operation name="reporteMensualOtrosMedios">
+      <input wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteMensualOtrosMediosRequest" message="tns:reporteMensualOtrosMedios" />
+      <output wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteMensualOtrosMediosResponse" message="tns:reporteMensualOtrosMediosResponse" />
+      <fault wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteMensualOtrosMedios/Fault/SirafBusinessException" name="SirafBusinessException" message="tns:SirafBusinessException" />
+    </operation>
+    <operation name="reporteOtrosMediosElectronicos">
+      <input wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteOtrosMediosElectronicosRequest" message="tns:reporteOtrosMediosElectronicos" />
+      <output wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteOtrosMediosElectronicosResponse" message="tns:reporteOtrosMediosElectronicosResponse" />
+      <fault wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteOtrosMediosElectronicos/Fault/SirafBusinessException" name="SirafBusinessException" message="tns:SirafBusinessException" />
+    </operation>
+    <operation name="inicioSesion">
+      <input wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/inicioSesionRequest" message="tns:inicioSesion" />
+      <output wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/inicioSesionResponse" message="tns:inicioSesionResponse" />
+      <fault wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/inicioSesion/Fault/SirafBusinessException" name="SirafBusinessException" message="tns:SirafBusinessException" />
+    </operation>
+    <operation name="reporteDiarioOtrosMedios">
+      <input wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteDiarioOtrosMediosRequest" message="tns:reporteDiarioOtrosMedios" />
+      <output wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteDiarioOtrosMediosResponse" message="tns:reporteDiarioOtrosMediosResponse" />
+      <fault wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteDiarioOtrosMedios/Fault/SirafBusinessException" name="SirafBusinessException" message="tns:SirafBusinessException" />
+    </operation>
+    <operation name="reporteMensualEfectivo">
+      <input wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteMensualEfectivoRequest" message="tns:reporteMensualEfectivo" />
+      <output wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteMensualEfectivoResponse" message="tns:reporteMensualEfectivoResponse" />
+      <fault wsam:Action="http://service.business.siraf.uif.gob.sv/ReporteTransaccionesWebService/reporteMensualEfectivo/Fault/SirafBusinessException" name="SirafBusinessException" message="tns:SirafBusinessException" />
+    </operation>
+  </portType>
+  <binding name="ReporteTransaccionesWebServicePortBinding" type="tns:ReporteTransaccionesWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="reporteDiarioEfectivo">
+      <wsp:PolicyReference URI="#ReporteTransaccionesWebServicePortBinding_reporteDiarioEfectivo_Policy" />
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SirafBusinessException">
+        <soap:fault use="literal" name="SirafBusinessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="reporteMensualOtrosMedios">
+      <wsp:PolicyReference URI="#ReporteTransaccionesWebServicePortBinding_reporteMensualOtrosMedios_Policy" />
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SirafBusinessException">
+        <soap:fault use="literal" name="SirafBusinessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="reporteOtrosMediosElectronicos">
+      <wsp:PolicyReference URI="#ReporteTransaccionesWebServicePortBinding_reporteOtrosMediosElectronicos_Policy" />
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SirafBusinessException">
+        <soap:fault use="literal" name="SirafBusinessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="inicioSesion">
+      <wsp:PolicyReference URI="#ReporteTransaccionesWebServicePortBinding_inicioSesion_Policy" />
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SirafBusinessException">
+        <soap:fault use="literal" name="SirafBusinessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="reporteDiarioOtrosMedios">
+      <wsp:PolicyReference URI="#ReporteTransaccionesWebServicePortBinding_reporteDiarioOtrosMedios_Policy" />
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SirafBusinessException">
+        <soap:fault use="literal" name="SirafBusinessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="reporteMensualEfectivo">
+      <wsp:PolicyReference URI="#ReporteTransaccionesWebServicePortBinding_reporteMensualEfectivo_Policy" />
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SirafBusinessException">
+        <soap:fault use="literal" name="SirafBusinessException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ReporteTransaccionesWebService">
+    <port name="ReporteTransaccionesWebServicePort" binding="tns:ReporteTransaccionesWebServicePortBinding">
+      <soap:address location="http://192.167.1.13:8080/ReporteTransaccionesWebService/ReporteTransaccionesWebService" />
+    </port>
+  </service>
+</definitions>

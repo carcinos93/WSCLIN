@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://service.business.siraf.uif.gob.sv/" targetNamespace="http://service.business.siraf.uif.gob.sv/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SirafBusinessException" type="tns:SirafBusinessException" />
+  <xs:element name="inicioSesion" type="tns:inicioSesion" />
+  <xs:element name="inicioSesionResponse" type="tns:inicioSesionResponse" />
+  <xs:element name="reporteDiarioEfectivo" type="tns:reporteDiarioEfectivo" />
+  <xs:element name="reporteDiarioEfectivoResponse" type="tns:reporteDiarioEfectivoResponse" />
+  <xs:element name="reporteDiarioOtrosMedios" type="tns:reporteDiarioOtrosMedios" />
+  <xs:element name="reporteDiarioOtrosMediosResponse" type="tns:reporteDiarioOtrosMediosResponse" />
+  <xs:element name="reporteMensualEfectivo" type="tns:reporteMensualEfectivo" />
+  <xs:element name="reporteMensualEfectivoResponse" type="tns:reporteMensualEfectivoResponse" />
+  <xs:element name="reporteMensualOtrosMedios" type="tns:reporteMensualOtrosMedios" />
+  <xs:element name="reporteMensualOtrosMediosResponse" type="tns:reporteMensualOtrosMediosResponse" />
+  <xs:element name="reporteOtrosMediosElectronicos" type="tns:reporteOtrosMediosElectronicos" />
+  <xs:element name="reporteOtrosMediosElectronicosResponse" type="tns:reporteOtrosMediosElectronicosResponse" />
+  <xs:complexType name="reporteMensualOtrosMedios">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:reporteMensualOtrosMediosReq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteMensualOtrosMediosReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cargoPersonaReporta" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoPersonaReporta" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="detalleMensualOtros" nillable="true" type="tns:transMensualOtrosDTO" />
+      <xs:element minOccurs="0" name="fechaReporte" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="tokenValido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transMensualOtrosDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="detalleEgreso" type="tns:totalizadorOtrosDTO" />
+      <xs:element minOccurs="0" name="detalleIngreso" type="tns:totalizadorOtrosDTO" />
+      <xs:element minOccurs="0" name="juridicaTransaccion" type="tns:juridicaDTO" />
+      <xs:element minOccurs="0" name="personaTransaccion" type="tns:personaDTO" />
+      <xs:element minOccurs="0" name="tipoPersona" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="totalizadorOtrosDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="totalTransacciones" type="xs:int" />
+      <xs:element minOccurs="0" name="valorOtrosMedios" type="xs:double" />
+      <xs:element minOccurs="0" name="valorTotal" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="juridicaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="actividadEconomica" type="xs:string" />
+      <xs:element minOccurs="0" name="domicilioComercial" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreDocumentoOtrosT" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroIdentificacionT" type="xs:string" />
+      <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoIdentificacionT" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="personaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellidoCasado" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoDepartamento" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoEstadoCivil" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoMunicipio" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoNacionalidad" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="lugarNacimiento" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreDocumentoOtros" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroDocumento" type="xs:string" />
+      <xs:element minOccurs="0" name="personaDomicilio" type="xs:string" />
+      <xs:element minOccurs="0" name="primerApellido" type="xs:string" />
+      <xs:element minOccurs="0" name="primerNombre" type="xs:string" />
+      <xs:element minOccurs="0" name="profesionPersona" type="xs:string" />
+      <xs:element minOccurs="0" name="segundoApellido" type="xs:string" />
+      <xs:element minOccurs="0" name="segundoNombre" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoDocumento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteMensualOtrosMediosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:reporteMensualOtrosMediosRes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteMensualOtrosMediosRes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoTransaccion" type="xs:string" />
+          <xs:element minOccurs="0" name="registrosProcesados" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseResponse" abstract="true">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoMensaje" type="xs:int" />
+      <xs:element minOccurs="0" name="descripcionMensaje" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SirafBusinessException">
+    <xs:sequence>
+      <xs:element name="codigoException" type="xs:int" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioEfectivo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:reporteDiarioEfectivoReq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioEfectivoReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="detalleTransacciones" nillable="true" type="tns:transaccionDTO" />
+      <xs:element minOccurs="0" name="fechaReporte" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="tokenValido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transaccionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cargoColaborador" type="xs:string" />
+      <xs:element minOccurs="0" name="claseProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoColaborador" type="xs:string" />
+      <xs:element minOccurs="0" name="conceptoTransaccion" type="xs:string" />
+      <xs:element minOccurs="0" name="distintoalCliente" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaTransaccion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idRegistroBancario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaJuridicaB" nillable="true" type="tns:juridicaDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaJuridicaC" nillable="true" type="tns:juridicaDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaPersonaB" nillable="true" type="tns:personaDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaPersonaC" nillable="true" type="tns:personaDTO" />
+      <xs:element minOccurs="0" name="montoTransaccion" type="xs:double" />
+      <xs:element minOccurs="0" name="numeroProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="objetivoEfectivo" type="xs:string" />
+      <xs:element minOccurs="0" name="personaFisicaT" type="tns:personaDTO" />
+      <xs:element minOccurs="0" name="puntoServicio" type="tns:puntoServicioDTO" />
+      <xs:element minOccurs="0" name="tipoPersonaB" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoPersonaC" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoTransaccion" type="xs:int" />
+      <xs:element minOccurs="0" name="valorEfectivo" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="puntoServicioDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="direccionAgencia" type="xs:string" />
+      <xs:element minOccurs="0" name="idDepartamento" type="xs:string" />
+      <xs:element minOccurs="0" name="idMunicipio" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioEfectivoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:reporteDiarioEfectivoRes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioEfectivoRes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoTransaccion" type="xs:string" />
+          <xs:element minOccurs="0" name="registrosProcesados" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="reporteMensualEfectivo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:reporteMensualEfectivoReq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteMensualEfectivoReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cargoPersonaReporta" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoPersonaReporta" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="detalleMensualEfectivo" nillable="true" type="tns:transaccionMensualDTO" />
+      <xs:element minOccurs="0" name="fechaReporte" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="tokenValido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transaccionMensualDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="detalleEgreso" type="tns:totalizadorDTO" />
+      <xs:element minOccurs="0" name="detalleIngreso" type="tns:totalizadorDTO" />
+      <xs:element minOccurs="0" name="juridicaTransaccion" type="tns:juridicaDTO" />
+      <xs:element minOccurs="0" name="personaTransaccion" type="tns:personaDTO" />
+      <xs:element minOccurs="0" name="tipoPersona" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="totalizadorDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="totalTransacciones" type="xs:int" />
+      <xs:element minOccurs="0" name="valorEfectivo" type="xs:double" />
+      <xs:element minOccurs="0" name="valorTotal" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteMensualEfectivoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:reporteMensualEfectivoRes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteMensualEfectivoRes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoTransaccion" type="xs:string" />
+          <xs:element minOccurs="0" name="registrosProcesados" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioOtrosMedios">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:reporteDiarioOtrosMediosReq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioOtrosMediosReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="detalleTransacciones" nillable="true" type="tns:transaccionOtrosDTO" />
+      <xs:element minOccurs="0" name="fechaReporte" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="tokenValido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transaccionOtrosDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cargoColaborador" type="xs:string" />
+      <xs:element minOccurs="0" name="claseProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoColaborador" type="xs:string" />
+      <xs:element minOccurs="0" name="conceptoTransaccion" type="xs:string" />
+      <xs:element minOccurs="0" name="distintoalCliente" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaTransaccion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idRegistroBancario" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaJuridicaB" nillable="true" type="tns:juridicaDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaJuridicaC" nillable="true" type="tns:juridicaDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaPersonaB" nillable="true" type="tns:personaDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaPersonaC" nillable="true" type="tns:personaDTO" />
+      <xs:element minOccurs="0" name="montoTransaccion" type="xs:double" />
+      <xs:element minOccurs="0" name="numeroProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="personaFisicaT" type="tns:personaDTO" />
+      <xs:element minOccurs="0" name="puntoServicio" type="tns:puntoServicioDTO" />
+      <xs:element minOccurs="0" name="tipoPersonaB" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoPersonaC" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoTransaccion" type="xs:int" />
+      <xs:element minOccurs="0" name="valorOtrosMedios" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioOtrosMediosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:reporteDiarioOtrosMediosResp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioOtrosMediosResp">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoTransaccion" type="xs:string" />
+          <xs:element minOccurs="0" name="registrosProcesados" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="inicioSesion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:inicioSesionReq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="inicioSesionReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="clave" type="xs:string" />
+      <xs:element minOccurs="0" name="cuenta" type="xs:string" />
+      <xs:element minOccurs="0" name="mac" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="inicioSesionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:inicioSesionRes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="inicioSesionRes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="token" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="reporteOtrosMediosElectronicos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:reporteDiarioOtrosMediosElectronicoReq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioOtrosMediosElectronicoReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="detalleTransacciones" nillable="true" type="tns:transaccionOtrosElectronicoDTO" />
+      <xs:element minOccurs="0" name="fechaReporte" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="tokenValido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transaccionOtrosElectronicoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bancoCuentaDestinatariaPB" type="xs:string" />
+      <xs:element minOccurs="0" name="claseCuentaPB" type="xs:string" />
+      <xs:element minOccurs="0" name="claseCuentaPO" type="xs:string" />
+      <xs:element minOccurs="0" name="conceptoTransaccionPO" type="xs:string" />
+      <xs:element minOccurs="0" name="estacionServicio" type="tns:puntoServicioDTO" />
+      <xs:element minOccurs="0" name="fechaTransaccion" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaJuridicaB" nillable="true" type="tns:juridicaDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaPersonaB" nillable="true" type="tns:personaDTO" />
+      <xs:element minOccurs="0" name="montoTransaccionPB" type="xs:double" />
+      <xs:element minOccurs="0" name="numeroCuentaPO" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroProductoPB" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroRegistroBancario" type="xs:string" />
+      <xs:element minOccurs="0" name="personaJuridicaSeccionA" type="tns:juridicaDTO" />
+      <xs:element minOccurs="0" name="personaNaturalSeccionA" type="tns:personaDTO" />
+      <xs:element minOccurs="0" name="tipoPersonaA" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoPersonaB" type="xs:int" />
+      <xs:element minOccurs="0" name="valorMedioElectronicoPB" type="xs:double" />
+      <xs:element minOccurs="0" name="valorOtrosMediosElectronicoPO" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteOtrosMediosElectronicosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:reporteDiarioOtrosMediosElectronicoRes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteDiarioOtrosMediosElectronicoRes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoTransaccion" type="xs:string" />
+          <xs:element minOccurs="0" name="registrosProcesados" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

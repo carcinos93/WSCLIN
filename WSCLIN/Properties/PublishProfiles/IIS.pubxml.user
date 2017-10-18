@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\nrodas\Documents\ws</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>09/16/2017 11:21:01</publishTime>
+    </File>
+    <File Include="bin/WSCLIN.dll">
+      <publishTime>09/19/2017 13:25:45</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>09/16/2017 11:21:04</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.inicioSesionRes.datasource">
+      <publishTime>09/13/2017 09:39:41</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.inicioSesionResponse.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteDiarioEfectivoRes.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteDiarioEfectivoResponse.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteDiarioOtrosMediosElectronicoRes.datasource">
+      <publishTime>09/13/2017 09:39:41</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteDiarioOtrosMediosResp.datasource">
+      <publishTime>09/13/2017 09:39:41</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteDiarioOtrosMediosResponse.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteMensualEfectivoRes.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteMensualEfectivoResponse.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteMensualOtrosMediosRes.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteMensualOtrosMediosResponse.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Service References/WSUIF/WSCLIN.WSUIF.reporteOtrosMediosElectronicosResponse.datasource">
+      <publishTime>09/13/2017 09:39:42</publishTime>
+    </File>
+    <File Include="Servicios/XMLFile1.xml">
+      <publishTime>09/13/2017 12:14:04</publishTime>
+    </File>
+    <File Include="ServiciosCLIN.asmx">
+      <publishTime>02/23/2017 19:44:50</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/19/2017 13:25:46</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
