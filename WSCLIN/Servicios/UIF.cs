@@ -583,22 +583,32 @@ namespace WSCLIN.Servicios
             t.fechaTransaccionSpecified = true;
             //Tipo de persona A : Juridica o natural
             t.tipoPersonaA = x.Element(x.Name.Namespace + "tipoPersonaA").ToInt();
-
-            //Persona A: Propietaria de la cuenta
-            t.personaNaturalSeccionA = persona("PT", x);
-          
-            //Persona juridica A: Propietaria de la cuenta
-            t.personaJuridicaSeccionA = juridica("PJA", x);
-
+            if (t.tipoPersonaA == 1)
+            {
+                //Persona A: Propietaria de la cuenta
+                t.personaNaturalSeccionA = persona("PT", x);
+            }
+            else if (t.tipoPersonaA == 2)
+            {
+                //Persona juridica A: Propietaria de la cuenta
+                t.personaJuridicaSeccionA = juridica("PJA", x);
+            }
             // Tipo persona B 
             t.tipoPersonaB = x.Element(x.Name.Namespace + "tipoPersonaB").ToInt();
-            // Persona B: propietaria de la cuenta destino
-            t.listaPersonaB = new WSUIF.personaDTO[] { 
+
+            if (t.tipoPersonaB == 1)
+            {
+                // Persona B: propietaria de la cuenta destino
+                t.listaPersonaB = new WSUIF.personaDTO[] { 
                         persona("PB", x)
-            };
-            t.listaJuridicaB = new WSUIF.juridicaDTO[] { 
+                };
+            }
+            else if (t.tipoPersonaB == 2)
+            {
+                t.listaJuridicaB = new WSUIF.juridicaDTO[] { 
                         juridica("PJB",x)
-            };
+                };
+            }
            
             //Cuenta de origen de la transaccion
             t.numeroCuentaPO = x.Element(x.Name.Namespace + "numeroCuentaPO").ToStr();
@@ -639,7 +649,7 @@ namespace WSCLIN.Servicios
                 //Datos de la persona natural que acumulo las transacciones
                 t.personaTransaccion = persona("PT", x);
             }
-            if (t.tipoPersona == 2)
+            else if (t.tipoPersona == 2)
             {
                 //Datos de la persona juridica que acumulo las transacciones
                 t.juridicaTransaccion = juridica("PJ", x);
@@ -671,7 +681,7 @@ namespace WSCLIN.Servicios
                 //Datos persona natural propietaria de la cuenta
                 t.personaTransaccion = persona("PT", x);
             }
-            if (t.tipoPersona == 2)
+            else if (t.tipoPersona == 2)
             {
                 //Datos persona juridica propietaria de la cuenta
                 t.juridicaTransaccion = juridica("PJ", x);
