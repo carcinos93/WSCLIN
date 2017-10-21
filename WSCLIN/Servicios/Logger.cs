@@ -23,8 +23,6 @@ namespace WSCLIN.Servicios
 
         public static void Setup()
         {
-
-
             Hierarchy hierarchy = (Hierarchy)LogManager.GetRepository();
             var logger = hierarchy.LoggerFactory.CreateLogger((ILoggerRepository)hierarchy, "logname");
             logger.Hierarchy = hierarchy;
@@ -34,7 +32,6 @@ namespace WSCLIN.Servicios
             hierarchy.Threshold = Level.All;
             logger.Level = Level.All;
             hierarchy.Configured = true;
-
             //log4net.Config.BasicConfigurator.Configure(dotNet);
             // log4net.Config.BasicConfigurator.Configure(hierarchy);
         }

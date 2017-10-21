@@ -332,7 +332,7 @@ namespace WSCLIN
 
             try
             {
-                var_cadenaconexion = (@"server=CLINSVNB03\SQLEXPRESS2012;database=" + Empresa + ";uid=" + USUARIO + ";password=" + CREDENCIAL + ";");
+                var_cadenaconexion = (@"server=localhost;database=" + Empresa + ";uid=" + USUARIO + ";password=" + CREDENCIAL + ";");
                 /* var_cadenaconexion = (@"server=10.10.0.17;database=clinerp;uid=jgiron;password=P@ssw0rd;");*/
                 abrirconexion();
                 var_comando.CommandText = "[dbo].[WSAMLTRANSACCION]";
