@@ -16,3 +16,5 @@ C:\Users\nrodas\Documents\nelson\Nelson\Nelson\WSCLIN\WSCLIN\bin\log4net.dll
 C:\Users\nrodas\Documents\nelson\Nelson\Nelson\WSCLIN\WSCLIN\bin\log4net.xml
 C:\Users\nrodas\Documents\nelson\Nelson\Nelson\WSCLIN\WSCLIN\bin\log4net.Ext.Json.dll
 C:\Users\nrodas\Documents\nelson\Nelson\Nelson\WSCLIN\WSCLIN\bin\log4net.Ext.Json.xml
+C:\Users\nrodas\Documents\nelson\Nelson\Nelson\WSCLIN\WSCLIN\bin\Dapper.dll
+C:\Users\nrodas\Documents\nelson\Nelson\Nelson\WSCLIN\WSCLIN\bin\Dapper.xml

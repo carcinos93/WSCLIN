@@ -12,6 +12,7 @@ using System.Reflection;
 using Newtonsoft;
 using Newtonsoft.Json;
 using WSCLIN.Servicios;
+using Dapper;
 using log4net;
 namespace WSCLIN
 {
@@ -64,7 +65,7 @@ namespace WSCLIN
             DataSet var_resultado = new DataSet();
             try
             {
-                var_cadenaconexion = (@"server=localhost;database="+empresa+";uid=" + usuario + ";password=" + clave + ";");
+                var_cadenaconexion = (@"server=localhost;database=" + empresa + ";uid=" + usuario + ";password=" + clave + ";");
                 abrirconexion();
                 var_comando.CommandText = "[dbo].[WS_COLECTOR]";
                 var_comando.CommandType = CommandType.StoredProcedure;
@@ -406,7 +407,74 @@ namespace WSCLIN
             return new RespuestaServicio { Mensaje = MensajeSistema("100"), Codigo = "100" };
         }
 
-
+        [WebMethod]
+        public RespuestaServicio ACTUALIZAR_TABLA(
+            string IP,
+            string USUARIO,
+            string CREDENCIAL,
+            string EMPRESA,
+            string TABLA,
+            string VALORLLAVE,
+            string CAMPO1,
+            string VALOR1,
+            string CAMPO2,
+            string VALOR2,
+            string CAMPO3,
+            string VALOR3,
+            string CAMPO4,
+            string VALOR4,
+            string CAMPO5,
+            string VALOR5
+            )
+        {
+            try
+            {
+                using (var conn = DbFactory.Conn())
+                {
+                    conn.Open();
+                    var affectedRows = conn.Execute("WS_ACTUALIZAR_CAMPOS",
+                        new
+                        {
+                            CTABLA = TABLA,
+                            CVALORLLAVE = VALORLLAVE,
+                            CCAMPO1 = (string.IsNullOrEmpty(CAMPO1) ? "ND" : CAMPO1),
+                            CVALOR1 = VALOR1,
+                            CCAMPO2 = (string.IsNullOrEmpty(CAMPO2) ? "ND" : CAMPO2),
+                            CVALOR2 = VALOR2,
+                            CCAMPO3 = (string.IsNullOrEmpty(CAMPO3) ? "ND" : CAMPO3),
+                            CVALOR3 = VALOR3,
+                            CCAMPO4 = (string.IsNullOrEmpty(CAMPO4) ? "ND" : CAMPO4),
+                            CVALOR4 = VALOR4,
+                            CCAMPO5 = (string.IsNullOrEmpty(CAMPO5) ? "ND" : CAMPO5),
+                            CVALOR5 = VALOR5
+                        },
+                        commandType: CommandType.StoredProcedure);
+                    return new RespuestaServicio
+                    {
+                        Codigo = "100",
+                        Mensaje = DbFactory.MensajeSistema("100")
+                    };
+                }
+            }
+            catch (SqlException ex)
+            {
+                log.Info("Error en el evento", ex);
+                return new RespuestaServicio
+                {
+                    Codigo = "97",
+                    Mensaje = ex.Message
+                };
+            }
+            catch (Exception ex)
+            {
+                log.Info("Error en el evento", ex);
+                return new RespuestaServicio
+                {
+                    Codigo = "97",
+                    Mensaje = ex.Message
+                };
+            }
+        }
       
        
 
