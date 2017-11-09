@@ -391,6 +391,7 @@ namespace WSCLIN
                                 Codigo = valorCol(dr, "ErrorNumber").ToString()
                             };
                             log.Info(JsonConvert.SerializeObject(c));
+                            return c;
                         }
                     }
                 }
