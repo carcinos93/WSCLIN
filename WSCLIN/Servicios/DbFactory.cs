@@ -27,9 +27,8 @@ namespace WSCLIN.Servicios
                 parametros = context.Request.Form;
                 if (parametros.Count == 0) //si es post entonces verificamos si es soap
                 {
-                    System.IO.Stream stream = System.IO.Stream.Null;
-                        context.Request.InputStream.CopyTo(stream);
-                    
+                    System.IO.Stream stream = context.Request.InputStream;
+                       
                         if (stream != null)
                         {
                             stream.Position = 0;
