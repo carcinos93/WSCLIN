@@ -16,7 +16,7 @@ namespace WSCLIN.Servicios
         public static IDbConnection Conn()
         {
             XmlDocument xmlSoapRequest = new XmlDocument();
-            var connectionString = @"server=10.10.0.17;database={0};uid={1};password={2};";
+            var connectionString = @"server=localhost\MSSQL2014;database={0};uid={1};password={2};";
             HttpContext context = HttpContext.Current;
             var usuario = "";
             var empresa ="";
@@ -27,29 +27,21 @@ namespace WSCLIN.Servicios
                 parametros = context.Request.Form;
                 if (parametros.Count == 0) //si es post entonces verificamos si es soap
                 {
-                    System.IO.Stream stream = context.Request.InputStream;
-                       
-                        if (stream != null)
-                        {
-                            stream.Position = 0;
-                            using (var reader = new System.IO.StreamReader(stream, Encoding.UTF8))
-                            {
-                                xmlSoapRequest.Load(reader);
-                                parametros = new NameValueCollection();
-                                parametros.Add("USUARIO",xmlSoapRequest.GetElementsByTagName("USUARIO")[0].InnerText);
-                                parametros.Add("CREDENCIAL", xmlSoapRequest.GetElementsByTagName("CREDENCIAL")[0].InnerText);
-                                parametros.Add("EMPRESA", xmlSoapRequest.GetElementsByTagName("EMPRESA")[0].InnerText);
-                            }
-                        }
-                    
+                    var bytes = new byte[context.Request.InputStream.Length];
+                    context.Request.InputStream.Position = 0;
+                    context.Request.InputStream.Read(bytes, 0, bytes.Length);
+                    string content = Encoding.UTF8.GetString(bytes);
+                    xmlSoapRequest.LoadXml(content);
+                    parametros = new NameValueCollection();
+                    parametros.Add("USUARIO", xmlSoapRequest.GetElementsByTagName("USUARIO")[0].InnerText);
+                    parametros.Add("CREDENCIAL", xmlSoapRequest.GetElementsByTagName("CREDENCIAL")[0].InnerText);
+                    parametros.Add("EMPRESA", xmlSoapRequest.GetElementsByTagName("EMPRESA")[0].InnerText);
                 }
             }
             else if (context.Request.HttpMethod == "GET")
             {
                 parametros = context.Request.QueryString;
             }
-
-
             usuario = parametros["USUARIO"];
             password = parametros["CREDENCIAL"];
             empresa = parametros["EMPRESA"];
