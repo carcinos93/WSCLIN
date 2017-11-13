@@ -16,7 +16,7 @@ namespace WSCLIN.Servicios
         public static IDbConnection Conn()
         {
             XmlDocument xmlSoapRequest = new XmlDocument();
-            var connectionString = @"server=localhost\MSSQL2014;database={0};uid={1};password={2};";
+            var connectionString = @"server=localhost;database={0};uid={1};password={2};";
             HttpContext context = HttpContext.Current;
             var usuario = "";
             var empresa ="";

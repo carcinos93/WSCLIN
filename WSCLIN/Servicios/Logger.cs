@@ -14,6 +14,8 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace WSCLIN.Servicios
 {
@@ -266,23 +268,51 @@ namespace WSCLIN.Servicios
                 properties["ip"] = (context.Request.ServerVariables["REMOTE_ADDR"]);
 
                 Dictionary<string, string> parametros = new Dictionary<string, string>();
-                if (context.Request.QueryString.Count == 0)
-                {
-                    foreach (string i in context.Request.Form.AllKeys)
-                    {
-                        parametros.Add(i, context.Request.Form.Get(i));
-                    }
-                }
-                else
+                if (context.Request.HttpMethod == "GET")
                 {
                     foreach (string i in context.Request.QueryString.AllKeys)
                     {
                         parametros.Add(i, context.Request.QueryString.Get(i));
                     }
                 }
+                if (context.Request.HttpMethod == "POST")
+                {
+                    if (context.Request.Form.AllKeys.Count() == 0)
+                    {
+                        //XmlDocument xmlSoapRequest = new XmlDocument();
+                       
+                        var bytes = new byte[context.Request.InputStream.Length];
+                        context.Request.InputStream.Position = 0;
+                        context.Request.InputStream.Read(bytes, 0, bytes.Length);
+                        string content = Encoding.UTF8.GetString(bytes);
+                        //xmlSoapRequest.LoadXml(content);
+                        XDocument xdoc = XDocument.Parse(content);
+                        var datos = (from l in xdoc.Root.Elements().
+                             ElementAt(0).Elements()
+                            .ElementAt(0).Descendants()
+                                     select new
+                                     {
+                                         NOMBRE = l.Name.LocalName,
+                                         VALOR = l.Value
+                                     }).ToList();
+                        datos.ForEach((e) => {
+                            parametros.Add(e.NOMBRE, e.VALOR);
+                        });
+                           
+                       // parametros.Add("soapBody", xmlSoapRequest.OuterXml.ToString());
+                    }
+                    else
+                    {
+                        foreach (string i in context.Request.Form.AllKeys)
+                        {
+                            parametros.Add(i, context.Request.Form.Get(i));
+                        }
+                    }
+                   
+                }
                 properties["parametros"] = (JsonConvert.SerializeObject(parametros));
                 properties["urlQuery"] = (context.Request.Url == null ? "" : context.Request.Url.Query);
-                properties["cli"] = context.Request.UserAgent;
+                properties["cli"] = (context.Request.UserAgent == null ? "Desconocido" : context.Request.UserAgent);
                 properties["metodo"] = context.Request.HttpMethod;
          
             }

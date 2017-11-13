@@ -1165,7 +1165,7 @@ namespace WSCLIN
         }
 
         [WebMethod]
-        public object reporteMensualOtros(
+        public RespuestaServicioUIF reporteMensualOtros(
         #region Credenciales
                 string USUARIO,
                 string CREDENCIAL,
