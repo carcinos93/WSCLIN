@@ -476,8 +476,82 @@ namespace WSCLIN
                 };
             }
         }
-      
-       
+
+        public RespuestaServicio InsertarContratoServicio(
+        #region Credenciales
+            string IP,
+            string MAC,
+            string USUARIO,
+            string CREDENCIAL,
+            string EMPRESA,
+        #endregion
+        #region Datos principales
+            string NUMERO_CONTRATO,
+            string CODIGO_CLIENTE,
+            string TIPO_PRODUCTO,
+            string REFERENCIA,
+            string FECHA_INICIO,/**Date**/
+            string FECHA_VENCIMIENTO,/**Date**/
+            string FECHA_FIN, /**Date**/
+            string PLAZO, /*Int*/
+            string MONTO_CONTRATO,/**numeric**/
+            string INGRESO_ESPERADO,/**numeric**/
+            string EGRESO_ESPERADO,/**numeric**/
+            string ESTADO,
+            string CALIFICACION,
+            string SALDO_CONTRATO,/**numeric**/
+            string ACTIVO
+        #endregion
+            )
+        {
+            try
+            {
+
+                using (var conn = DbFactory.Conn())
+                {
+                    conn.Open();
+                    var affectedRows = conn.Execute("dbo.WS_CONTRATO_SERVICIO",
+                        new
+                        {
+                            USUARIO = USUARIO,
+                            CREDENCIAL = CREDENCIAL,
+                            EMPRESA = EMPRESA,
+                            IP = IP,
+                            MAC = MAC,
+                            NUMERO_CONTRATO = (string.IsNullOrEmpty(NUMERO_CONTRATO) ? null : NUMERO_CONTRATO),
+                            CODIGO_CLIENTE = (string.IsNullOrEmpty(CODIGO_CLIENTE) ? null : CODIGO_CLIENTE),
+                            TIPO_PRODUCTO = (string.IsNullOrEmpty(TIPO_PRODUCTO) ? null : TIPO_PRODUCTO),
+                            REFERENCIA = (string.IsNullOrEmpty(REFERENCIA) ? null : REFERENCIA),
+                            FECHA_INICIO = (!string.IsNullOrEmpty(FECHA_INICIO) ? (DateTime?)DateTime.Parse(FECHA_INICIO) :  null),
+                            FECHA_VENCIMIENTO = (!string.IsNullOrEmpty(FECHA_VENCIMIENTO) ? (DateTime?)DateTime.Parse(FECHA_VENCIMIENTO) : null),
+                            FECHA_FIN = (!string.IsNullOrEmpty(FECHA_FIN) ? (DateTime?)DateTime.Parse(FECHA_FIN) : null),
+                            PLAZO = (!string.IsNullOrEmpty(PLAZO) ? int.Parse(PLAZO) : 0),
+                            MONTO_CONTRATO = (!string.IsNullOrEmpty(MONTO_CONTRATO) ? double.Parse(PLAZO) : 0d),
+                            INGRESO_ESPERADO = (!string.IsNullOrEmpty(INGRESO_ESPERADO) ? double.Parse(INGRESO_ESPERADO) : 0d),
+                            EGRESO_ESPERADO = (!string.IsNullOrEmpty(EGRESO_ESPERADO) ? double.Parse(EGRESO_ESPERADO) : 0d),
+                            ESTADO = (!string.IsNullOrEmpty(ESTADO) ? ESTADO : null),
+                            CALIFICACION = (!string.IsNullOrEmpty(CALIFICACION) ? ESTADO : null),
+                            SALDO_CONTRATO = (!string.IsNullOrEmpty(SALDO_CONTRATO) ? double.Parse(SALDO_CONTRATO) : 0d),
+                            ACTIVO = (!string.IsNullOrEmpty(ACTIVO) ? ACTIVO : null),
+                        },
+                        commandType: CommandType.StoredProcedure);
+                    return new RespuestaServicio
+                    {
+                        Codigo = "100",
+                        Mensaje = DbFactory.MensajeSistema("100")
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Info("Error en el evento InsertarContratoServicio", ex);
+                return new RespuestaServicio
+                {
+                    Codigo = "97",
+                    Mensaje = ex.Message
+                };
+            }
+        }
 
         #region Metodos de la UIF
         [WebMethod]
